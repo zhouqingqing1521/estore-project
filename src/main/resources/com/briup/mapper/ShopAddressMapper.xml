@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.mapper.ShopAddressMapper">
+    <select id="findAddressByCustomerId" resultType="ShopAddress">
+        SELECT  id,
+               phone,address,receiveName
+        FROM  es_shopaddress
+        WHERE customer_id= #{id}
+    </select>
+
+    <insert id="saveAddress">
+        insert into es_shopaddress (receiveName,address,phone,customer_id)
+        values(#{receiveName},#{address},#{phone},#{customer.id})
+    </insert>
+
+
+
+</mapper>
